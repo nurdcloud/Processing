@@ -68,7 +68,7 @@ class Navigation{
   }
 
   void render(){
-    fill(255,255,255);
+    fill(200,200,200);
     rect(50,10,200,20);
     line(150,10,150,30);
     fill(0,0,0);
