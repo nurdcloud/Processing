@@ -1,10 +1,36 @@
 class Navigation{
+
+  // function hand(float angle, color c)
+  //   drawing the clock handles
+  //
+  // function set()
+  //   sets the new direction based on mouseX
+  //
+  // function mouse()
+  //   detects the mouse if it is in the grey rectacle. Updates the 'input' variable 
+  //
+  // function approachAngle()
+  //   Function to align 'actual'-direction with 'desired'-direction
+  //
+  // function update()
+  //   running all the functions required for the next loop
+  //
+  // function render()
+  //   draw the 'gui' and the clock-handles
+
+
+  // Coordinates are handled in degrees..
+
+  // Direction is based on a PVector, which we turn to the desired direction
   PVector direction;
-  float input=0;
+  
+  // Colors for the hand function
   color green=color(0,255,0);
   color red=color(255,0,0);
   color blue=color(0,0,255);
   
+  // While the mouse is in the grey field, this is updated
+  float input=0;
   float desired=0;
   float actual=0;
   float difference=0;
@@ -38,9 +64,12 @@ class Navigation{
   }
   
   void update(){
+    // Read 'actual' from the PVector 'direction'
     actual=degrees(direction.heading());
     
+    // Difference must be relative to current 'actual' and 'desired'
     difference=actual-desired;
+    // But PVector.heading() returns -180 to 180 degrees...
     if(difference<-180){
       difference+=360;
     }
@@ -58,6 +87,7 @@ class Navigation{
     pushMatrix();
     rotate(radians(angle));
     fill(c);
+    // A clock handle
     beginShape();
     vertex(0,0);
     vertex(5,-100);
