@@ -11,10 +11,12 @@ void draw(){
   n.render();
 }
 
+// Set new direction
 void mouseReleased() {
  n.set();
 }
 
+// Pause
 void keyPressed() {
   final int k = keyCode;
 
